@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3 Column Layout with Collapsible Menu</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="header">
+      <div class="header-child">
+        <div class="datetime">
+          <div id="time"></div>
+          <div id="date"></div>
+        </div>
+        <div id="greeting"></div>
+        <div class="menu-toggle"><img src="menu.png" width="20px"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div id="googleSlides" style=" border-radius:17px;margin:0 auto;overflow:hidden;margin-bottom:30px;">
+        <iframe
+          src="https://docs.google.com/presentation/d/e/2PACX-1vQyymFEHrr-dAOxS6CQfcJPXKzG2ZJT3BegFCJzKAuZtR_R1IpN74JUKKNichAEKYSKIm2075aJw7ai/embed?start=false&loop=false&delayms=3000"
+          frameborder="0" width="100%" height="400px" allowfullscreen="true" mozallowfullscreen="true"
+          webkitallowfullscreen="true"></iframe>
+      </div>
+      <div id="googleSpreadsheet"
+        style="display: none; padding:10px;border-style:solid;border-width:6px;border-color: #00AC47;border-radius: 17px;margin:0 auto;overflow:hidden;margin-bottom:30px;">
+        <iframe
+          src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRJvs_B9belVtKLHJl-rh8hkfez1ulxS0kbTzHwAr8QZvVRP4lRbQEYbXoEpkbNlYysOfDvruP1IeW9/pubhtml?gid=504872977&amp;single=true&amp;widget=true&amp;headers=false"
+          frameborder="0" width="100%" height="330px"></iframe>
+      </div>
+      <div id="googleForm"
+        style="display: none; padding:10px;border-style:solid;border-width:6px;border-color: #7248B9;border-radius: 17px;margin:0 auto;overflow:hidden;margin-bottom:30px;">
+        <p style="color: #fff;font-size: 18px;font-weight: 600;margin-top: 0;">Google Form</p>
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSezmD3gYY3pbHmq7DIHYnlaYgjCSfWDXmIIjRSKI76vxH99kA/viewform?embedded=true"
+          frameborder="0" width="100%" height="330px"></iframe>
+      </div>
+      <div id="notionPage" style="border-radius: 17px; overflow: hidden;border-width:6px;border-style: solid;margin-bottom:30px;">
+        <iframe src="https://v2-embednotion.com/fe2433e1fbbf463f98cadba298ded863" style="width: 100%; height: 400px; border: none;"></iframe>
+      </div>
+    </div>
+    <div class="column">
+      <div id="pomodoroTimer" style="margin-bottom:30px;" class="pomodoro-timer">
+        <div>
+          <button class="pomodoro-timer-button" onclick="setTimer(25)">Focus</button>
+          <button class="pomodoro-timer-button" onclick="setTimer(5)">Short Break</button>
+          <button class="pomodoro-timer-button" onclick="setTimer(15)">Long Break</button>
+        </div>
+        <div>
+          <label id="timerDisplay">00:00</label>
+        </div>
+        <div>
+          <button class="pomodoro-control" onclick="startTimer()">START</button>
+          <button class="pomodoro-control" onclick="stopTimer()">STOP</button>
+        </div>
+      </div>
+      <div id="twitterQuotes" style="margin-bottom:30px;">
+        <a class="twitter-timeline" data-width="338" data-height="300" data-theme="dark"
+          href="https://twitter.com/Super_Thinkiing?ref_src=twsrc%5Etfw">Tweets by Super_Thinkiing</a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+      <div class="notes-container" id="notesWidget" style="display: none;margin-bottom:30px;">
+        <div class="notes-header">Notes</div>
+        <textarea class="notes-textbox" placeholder="Write your notes here..."></textarea>
+      </div>
+      <div id="issue-tracker-widget" class="widget" style="display: none;border-style:solid;border-width:3px;border-color: #007bff;overflow:hidden;border-radius: 17px;margin-bottom:30px;">
+        <h2>Issue Tracker</h2>
+        <form id="issue-form">
+            <input type="text" id="issue-title" placeholder="Issue Title" required>
+            <textarea id="issue-description" placeholder="Description" required></textarea>
+            <select id="issue-priority">
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+            </select>
+            <button type="submit">Submit Issue</button>
+        </form>
+        <div id="issue-status"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div id="spotifyPlayer" style="margin-bottom:30px;" class="spotify-music-player">
+        <iframe style="border-radius:12px"
+          src="https://open.spotify.com/embed/playlist/37i9dQZF1DX1dCsSMSXSsP?utm_source=generator&theme=0" width="100%"
+          height="152" frameBorder="0" allowfullscreen=""
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+      <div id="tilCorner" class="til-corner" style="margin-bottom:30px;">
+        <h3>TIL Corner</h3>
+        <ul class="til-list" id="tilList">
+        </ul>
+        <div class="add-til-container">
+          <input type="text" id="tilInput" class="add-til-input" placeholder="Enter today's learning..." />
+          <button id="addTil" class="add-til-button">Add</button>
+        </div>
+      </div>
+      <div id="googleCalendar"
+        style="background-color: #E3E9FF; padding: 10px;padding-bottom: 4px; border-radius: 17px;margin-bottom:30px;"><iframe
+          src="https://calendar.google.com/calendar/embed?src=4695545b5c641e966528457ae0405f9089fd195fd7ea2cc69d8608ba0c9bc5f6%40group.calendar.google.com&ctz=Asia%2FKolkata"
+          style="border: 0" width="100%" height="200px" frameborder="0" scrolling="no"></iframe>
+      </div>
+      <div id="pollWidget" style="display: none;border-style:solid;border-width:3px;border-color: #7248B9;overflow:hidden;border-radius: 17px;margin-bottom:30px;">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfDj-5gVaFEXX9Kvz1OEdKkSvnZqdiO8rgvpljnt5X9eZI7xA/viewform?embedded=true" width="100%" height="397" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+      </div>
+      
+    </div>
+    <div class="sidebar" id="sidebar">
+      <div class="menu-item disabled">
+        Google Slide <div class="toggle" data-widget="googleSlides"></div>
+      </div>
+      <div class="menu-item disabled">
+        Pomodoro Timer <div class="toggle" data-widget="pomodoroTimer"></div>
+      </div>
+      <div class="menu-item disabled">
+        Google Spreadsheet <div class="toggle" data-widget="googleSpreadsheet"></div>
+      </div>
+      <div class="menu-item disabled">
+        Google Form <div class="toggle" data-widget="googleForm"></div>
+      </div>
+      <div class="menu-item disabled">
+        Spotify <div class="toggle" data-widget="spotifyPlayer"></div>
+      </div>
+      <div class="menu-item disabled">
+        Poll <div class="toggle" data-widget="pollWidget"></div>
+      </div>
+      <div class="menu-item disabled">
+        Quotes-X <div class="toggle" data-widget="twitterQuotes"></div>
+      </div>
+      <div class="menu-item disabled">
+        Issue Tracker <div class="toggle" data-widget="issue-tracker-widget"></div>
+      </div>
+      <div class="menu-item disabled">
+        Daily Growth Checklist <div class="toggle"></div>
+      </div>
+      <div class="menu-item disabled">
+        Announcements <div class="toggle"></div>
+      </div>
+      <div class="menu-item disabled">
+        TIL Corner <div class="toggle" data-widget="tilCorner"></div>
+      </div>
+      <div class="menu-item disabled">
+        Calendar <div class="toggle" data-widget="googleCalendar"></div>
+      </div>
+      <div class="menu-item disabled">
+        Google Meet <div class="toggle"></div>
+      </div>
+      <div class="menu-item disabled">
+        Notes <div class="toggle" data-widget="notesWidget"></div>
+      </div>
+      <div class="menu-item disabled">
+        ChatGPT chat box <div class="toggle"></div>
+      </div>
+      <div class="menu-item disabled">
+        Notion Page <div class="toggle" data-widget="notionPage"></div>
+      </div>
+    </div>
+    <script src="script.js">
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "eZyBoard",
+  "description": "Digital Notice Board",
+  "version": "1.0",
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "menu.png",
+        "icon16.png",
+        "icon48.png",
+        "icon128.png",
+        "styles.css",
+        "bg.jpg"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
